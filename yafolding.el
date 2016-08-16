@@ -104,10 +104,10 @@
   (save-excursion
     (goto-char (point-min))
     (while (< (line-number-at-pos)
-            (line-number-at-pos (point-max)))
-    (if (= (yafolding-get-indent-level) indent-level)
-        (yafolding-hide-element))
-    (forward-line 1))))
+              (line-number-at-pos (point-max)))
+      (if (= (yafolding-get-indent-level) indent-level)
+          (yafolding-hide-element))
+      (forward-line 1))))
 
 (defun yafolding-toggle-all (&optional indent-level)
   "Toggle folding of the entire file.
