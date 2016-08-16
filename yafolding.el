@@ -76,16 +76,16 @@
       (save-excursion
         (forward-line 1)
         (yafolding-get-indent-level))
-      (let ((indent-level 0)
-            (last-indentation (current-indentation)))
-        (save-excursion
-          (while (and (> (current-indentation) 0)
-                      (> (line-number-at-pos) 1))
-            (forward-line -1)
-            (when (< (current-indentation) last-indentation)
-              (setq last-indentation (current-indentation))
-              (setq indent-level (+ 1 indent-level)))))
-        indent-level)))
+    (let ((indent-level 0)
+          (last-indentation (current-indentation)))
+      (save-excursion
+        (while (and (> (current-indentation) 0)
+                    (> (line-number-at-pos) 1))
+          (forward-line -1)
+          (when (< (current-indentation) last-indentation)
+            (setq last-indentation (current-indentation))
+            (setq indent-level (+ 1 indent-level)))))
+      indent-level)))
 
 (defun yafolding-show-region (beg end)
   "Delete all yafolding overlays between BEG and END."
